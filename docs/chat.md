@@ -125,6 +125,13 @@ Example of ignored me:
 > The Ignored Me feature is checked in GameCore.whisper. When it is found that a player is ignoring the whisperer, the whisper operation ends and returns an appropriate message to the whisperer.
 
 
+## Prefix - Reed, Carl
+### User:
+> The prefix feature is an addition to mesages that distinguishes chat messages from other types of messages within the game. The default prefix is ">>>" and can be changed within the user's "chat config" file. The prefix will appear for messages said within player chat, such as say, shout, whisper, and quick reply messages, but will not appear for other messages, such as events that happen within the game world.
+
+### Dev:
+> The implementation of the prefix is done in the Player.java file, while the file to read in the prefix is done in the GameClient.java file. Two new methods have been implemented to create a standard system to send out messages among players in the game: boolean messagePlayer(Player source, String messageType, String message), and String getMessage(). These methods are now called in the say, shout, whisper, and quickReply methods within the GameCore.java file. Within the GameClient.java file, the method readPrefixFromFile is called, in which the chat config file is read in to the player's configuration. By default, it is ">>>" and set in the setPrefix method in the Player.java file. In the messagePlayer and getMessage methods, the prefix is set by adding this.prefix in the message statment, and the prefix is added to the user's chat output. This format can be altered by those who wish to implement different message formats or different forms of prefixes. 
+
 
 ## Note to Devs
 > When adding a new feature, start at GameClient -> GameObjectInterface -> GameObject -> GameCoreInterface -> GameCore.
