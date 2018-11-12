@@ -137,4 +137,3 @@ Example of ignored me:
 
 ## Note to Devs
 > When adding a new feature, start at GameClient -> GameObjectInterface -> GameObject -> GameCoreInterface -> GameCore.
-> Two methods have been implemented to create a standard system to send out messages among players in the game: boolean messagePlayer(Player source, String messageType, String message), and String getMessage(). These methods are now called in the say, shout, whisper, and quickReply methods within the GameCore.java file.
