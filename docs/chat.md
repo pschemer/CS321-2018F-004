@@ -132,7 +132,7 @@ Example of ignored me:
 ![](../images/timestamp.png)
 
 ### Dev:
-> The implementation of timestamps is done in the Player.java file. Two methods have been implemented to create a standard system to send out messages among players in the game: boolean messagePlayer(Player source, String messageType, String message), and String getMessage(). These methods are now called in the say, shout, whisper, and quickReply methods within the GameCore.java file. In the messagePlayer and getMessage methods, a call to GameServer.java's getDate() method is used in order to receive the server time within the message, and is formatted to where the timestamp is placed before the actual message. This format can be altered by those who wish to implement different message formats or different forms of timestamps.
+> The implementation of timestamps is done in the Player.java file. In the messagePlayer and getMessage methods in the Player.java file, a call to GameServer.java's getDate() method is used in order to receive the server time within the message, and is formatted to where the timestamp is placed before the actual message. This format can be altered by those who wish to implement different message formats or different forms of timestamps.
 
 
 
