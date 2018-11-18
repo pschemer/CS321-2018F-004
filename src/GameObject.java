@@ -16,7 +16,7 @@ import java.util.HashSet;
  */
 public class GameObject extends UnicastRemoteObject implements GameObjectInterface {
     private final GameCore core;
-
+    private PlayerList players;
 
     
     /**
@@ -26,7 +26,7 @@ public class GameObject extends UnicastRemoteObject implements GameObjectInterfa
      */
 	public GameObject(String playerAccountsLocation, String worldFile) throws Exception {
         super();
-        
+        players = new PlayerList();
 		core = new GameCore(playerAccountsLocation, worldFile);
 
     }
@@ -38,7 +38,7 @@ public class GameObject extends UnicastRemoteObject implements GameObjectInterfa
      * @return true if player is found, false otherwise.
      */
     public boolean setReplyWriter(String playerName, PrintWriter writer) {
-        Player player = core.findPlayer(playerName);
+        Player player = players.findPlayer(playerName);
         if(player != null && writer != null) {
             player.setReplyWriter(writer);
             return true;
@@ -297,7 +297,7 @@ public class GameObject extends UnicastRemoteObject implements GameObjectInterfa
     //Begin 409 Word Filter.
     @Override
     public void setPlayerFilteredWords(String playerName, HashSet<String> filteredWords) {
-        Player player = core.findPlayer(playerName);
+        Player player = players.findPlayer(playerName);
         player.setFilteredWords(filteredWords);
     }
 
@@ -479,7 +479,7 @@ public class GameObject extends UnicastRemoteObject implements GameObjectInterfa
      */
     // Warning: Doesn't work because player obj not serializable
     public Player getPlayer(String name) throws RemoteException{
-    	return core.findPlayer(name);
+    	return players.findPlayer(name);
     }
  
     /**
@@ -777,7 +777,7 @@ public class GameObject extends UnicastRemoteObject implements GameObjectInterfa
      * @throws RemoteException
      */
     public void setPlayerChatPrefix(String playerName, String newPrefix) throws RemoteException {
-        Player player = core.findPlayer(playerName);
+        Player player = players.findPlayer(playerName);
         player.setPrefix(newPrefix);
     }
 }
