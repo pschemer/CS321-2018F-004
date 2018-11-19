@@ -841,21 +841,6 @@ public class GameCore implements GameCoreInterface {
 		}
 	}
 
-	/**
-	 * Returns the player with the given name or null if no such player.
-	 * 
-	 * @param name Name of the player to find.
-	 * @return Player found or null if none.
-	 */
-	@Override
-	public Player findPlayer(String name) {
-		for (Player player : this.playerList) {
-			if (player.getName().equalsIgnoreCase(name)) {
-				return player;
-			}
-		}
-		return null;
-	}
      /**
      * Prints message to player if request can processed, contacts other player about their request
      * @param requestingTrader Name of the player who has requested the trade

@@ -48,14 +48,6 @@ public interface GameCoreInterface {
      */   
     public void broadcast(Room room, String message);
     
-    
-    /**
-     * Returns the player with the given name or null if no such player.
-     * @param name Name of the player to find.
-     * @return Player found or null if none.
-     */
-    public Player findPlayer(String name);
-    
     /**
      * Allows a player to join the game.  If a player with the same name (case-insensitive)
      *  is already in the game, then this returns false.  Otherwise, adds a new player of 
